@@ -53,18 +53,16 @@ struct MainPage {
   @Builder
   button(text: string, onClick: () => void) {
     Button({ type: ButtonType.Normal }) {
-      Row() {
-        Column() {
-          Text(text)
-            .fontSize(14)
-            .fontWeight(FontWeight.Bold)
-            .fontColor('#000000')
-          Rect()
-            .radius(1)
-            .fill('#0A59F7')
-            .height(2)
-            .width(75)
-        }
+      Column() {
+        Text(text)
+          .fontSize(14)
+          .fontWeight(FontWeight.Bold)
+          .fontColor('#000000')
+        Rect()
+          .radius(1)
+          .fill('#0A59F7')
+          .height(2)
+          .width(75)
       }
     }
     .width('70%')

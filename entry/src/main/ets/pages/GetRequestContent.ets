@@ -5,11 +5,9 @@ import { ArcList, ArcListItem, ArcListAttribute, ArcListItemAttribute } from '@k
 
 @Component
 export struct GetRequestContent {
-  @State content: string = '';
   @State breeds: Books[] = [];
-  @State currentIndex: number = 1;
-  @State message: string = '';
   @Consume('NavPathStack') pageStack: NavPathStack;
+  private content: string = '';
   private scroller: Scroller = new Scroller();
 
   async aboutToAppear() {
@@ -47,7 +45,7 @@ export struct GetRequestContent {
     NavDestination() {
       Column() {
         ArcList({ initialIndex: 0, scroller: this.scroller }) {
-          ForEach(this.breeds, (breed: Books, index: number) => {
+          ForEach(this.breeds, (breed: Books) => {
             ArcListItem() {
               Column() {
                 Text(`User Id: ${breed.userId}`)
@@ -75,15 +73,15 @@ export struct GetRequestContent {
               start: {
                 builder: () => {
                   this.itemStart()
-                },
+                }
               },
               end: {
                 builder: () => {
                   this.itemEnd()
-                },
+                }
               }
             })
-          }, (breed: Books) => breed.id)
+          }, (breed: Books) => breed.id.toString())
         }
         .width('100%')
         .height('100%')
@@ -96,10 +94,9 @@ export struct GetRequestContent {
   }
 
   private getTransferSynEx = async () => {
-    const getURL = 'https://' + $r('app.string.service_url');
-
+    const getURL = `https://${$r('app.string.service_url')}`;
     const sessions = rcp.createSession();
-    sessions.get(getURL)
+    await sessions.get(getURL)
       .then((responses) => {
         const responseText = `${JSON.stringify(responses)}`;
         const data: Books[] = JSON.parse(responseText);

@@ -5,12 +5,11 @@
 This mobile application offers a simple and intuitive way to manage a personal book list. With its clean design and smooth interactions, users can easily add new books, browse their collection in a scrollable view, and remove items when needed. Books can be deleted quickly by swiping left or right to reveal a delete button, providing a seamless user experience. Designed for responsiveness and mobility, the app serves as a practical solution for readers who want to keep track of their reading list on the go.
 
 # Preview
-
 <div>
-   <img src="./images/1.png" width="24%"/>
-   <img src="./images/2.png" width="24%"/>
-   <img src="./images/4.png" width="24%"/>
-   <img src="./images/5.png" width="24%"/>
+<img src="./screenshots/1.png" width="24%"/>
+<img src="./screenshots/2.png" width="24%"/>
+<img src="./screenshots/4.png" width="24%"/>
+<img src="./screenshots/5.png" width="24%"/>
 </div>
 
 # Use Cases
@@ -32,7 +31,7 @@ This mobile application offers a simple and intuitive way to manage a personal b
 - **Tools**: DevEco Studio Vers 5.1.0.842
 - **Libraries**: @kit.RemoteCommunicationKit, @kit.ArkUI
 
-# Project Directory
+# Directory Structure
    ```
    entry/src/main/ets/
     ├── components/
@@ -52,5 +51,7 @@ This mobile application offers a simple and intuitive way to manage a personal b
 - Remote Communication Kit is not working on the previewer.
 
 # License
-**StoryTime** is distributed under the terms of the MIT License
-See the [LICENSE](./LICENSE) for more information.
+
+**StoryTime** is distributed under the terms of the MIT License.
+
+• See the [LICENSE](LICENSE) for more information

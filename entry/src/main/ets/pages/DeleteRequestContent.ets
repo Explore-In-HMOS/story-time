@@ -95,10 +95,10 @@ export struct DeleteRequestContent {
   }
 
   private deleteTransferSyn = async () => {
-    const deleteURL = 'https://' + $r('app.string.service_url') + '/${this.ids}`';
+    const deleteURL = `https://${$r('app.string.service_url')}${this.ids}`
     const sessions = rcp.createSession();
 
-    sessions.delete(deleteURL)
+   await sessions.delete(deleteURL)
       .then((response) => {
         this.postStatus = 'Success!';
         this.deletedDataUrl = this.ids;

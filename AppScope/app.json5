@@ -1,6 +1,6 @@
 {
   "app": {
-    "bundleName": "com.hmosdemos.storytime",
+    "bundleName": "com.hmosdemos.wearable.story_time",
     "vendor": "hmosdemos",
     "versionCode": 1000000,
     "versionName": "1.0.0",

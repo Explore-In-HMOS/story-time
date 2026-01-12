@@ -4,11 +4,11 @@ import { BusinessError } from '@kit.BasicServicesKit';
 @Component
 export struct PostRequestContent {
   @State userId: string = '';
-  @State ids: string = '';
-  @State title: string = '';
-  @State completed: string = '';
   @State postStatus: string = '';
   @Consume('NavPathStack') pageStack: NavPathStack;
+  private completed: string = '';
+  private title: string = '';
+  private ids: string = '';
 
   build() {
     NavDestination() {
@@ -69,8 +69,7 @@ export struct PostRequestContent {
   }
 
   private postTransferSyn = async () => {
-    const postURL = 'https://' + $r('app.string.service_url');
-
+    const postURL = `https://${$r('app.string.service_url')}`;
     const postContent: rcp.RequestContent = {
       fields: {
         'userId': this.userId,
@@ -80,7 +79,7 @@ export struct PostRequestContent {
       }
     }
     const sessions = rcp.createSession();
-    sessions.post(postURL, postContent)
+    await sessions.post(postURL, postContent)
       .then((responses) => {
         this.postStatus = 'Success!';
         console.error(`POST data: ${JSON.stringify(postContent)}`);
